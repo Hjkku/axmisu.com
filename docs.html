@@ -34,9 +34,8 @@
   <header class="top">
     <a href="/" class="logo" aria-label="Axmisu"><svg aria-hidden="true"><use href="/icons/common.svg#ax-logo" /></svg></a>
     <div class="title">API Docs</div>
-    <button type="button" class="icon-btn" id="theme" aria-label="Ganti tema">◐</button>
-    <button type="button" class="icon-btn menu-btn" id="menu" aria-label="Menu">☰</button>
-    <a class="login" href="https://member.axmisu.com/login">Masuk</a>
+    <button type="button" class="icon-btn" id="theme" aria-label="Ganti tema"><svg aria-hidden="true"><use href="/icons/common.svg#ax-moon" /></svg></button>
+    <button type="button" class="icon-btn menu-btn" id="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
   </header>
 
   <div class="drawer-shade" id="shade"></div>
@@ -211,11 +210,6 @@
     })
 
     document.getElementById('menu').addEventListener('click', () => document.body.classList.toggle('menu-open'))
-    document.getElementById('theme').addEventListener('click', () => {
-      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
-      document.documentElement.dataset.theme = next
-      localStorage.setItem('ax-theme', next)
-    })
 
     fetch(`${API}/v1`)
       .then((r) => r.json())
@@ -224,6 +218,7 @@
         document.getElementById('main').innerHTML = '<div class="card empty">Gagal memuat dokumentasi. Coba muat ulang halaman.</div>'
       })
   </script>
+  <script src="/page.js"></script>
 </body>
 
 </html>

@@ -67,8 +67,8 @@ code { font-family: var(--mono); }
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  height: 3.5rem;
-  padding: 0 1rem;
+  height: calc(3.75rem + 1px);
+  padding: 0.5rem 1rem;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
@@ -82,7 +82,7 @@ code { font-family: var(--mono); }
   color: var(--bright);
 }
 
-.top .logo svg { width: 1.4rem; height: 1.4rem; }
+.top .logo svg { width: 1.25rem; height: 1.25rem; }
 
 .top .title {
   flex: 1;
@@ -91,16 +91,8 @@ code { font-family: var(--mono); }
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: var(--display);
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--bright);
-}
-
-.top a.login {
-  font-size: 0.875rem;
-  text-decoration: none;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: 0.6rem;
   color: var(--bright);
 }
 
@@ -108,17 +100,18 @@ code { font-family: var(--mono); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 0;
-  border-radius: 0.6rem;
-  background: transparent;
-  color: var(--bright);
-  font-size: 1.2rem;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  color: var(--text);
   cursor: pointer;
 }
 
-.icon-btn:hover { background: var(--accent-soft); }
+.icon-btn svg { width: 1.25rem; height: 1.25rem; }
 
 .legal-wrap {
   position: relative;
