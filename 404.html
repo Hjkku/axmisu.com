@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <title>404 — Axmisu</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="/page.css" />
+  <script>
+    (() => {
+      const p = location.pathname
+      if (/^\/(grup|saluran|hubungiwa|hubungitelegram)\/?$/.test(p)) return location.replace('/komunitas')
+      if (/^\/(dashboard|admin|login|register|forgot-password|verify-email)(\/|$)/.test(p)) return location.replace('https://member.axmisu.com' + p + location.search + location.hash)
+      const saved = localStorage.getItem('ax-theme')
+      const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+    })()
+  </script>
+</head>
+
+<body>
+  <div class="center-page">
+    <h1>404</h1>
+    <p>Halaman tidak ditemukan.</p>
+    <a class="btn" href="/">Beranda</a>
+  </div>
+</body>
+
+</html>

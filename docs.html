@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Dokumentasi API — Axmisu</title>
+  <meta name="description" content="Dokumentasi API Axmisu: panel, akun premium, nomor virtual, webhook, cek saldo, dan daftar kode error untuk integrasi." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://axmisu.com/docs" />
+  <meta property="og:title" content="Dokumentasi API — Axmisu" />
+  <meta property="og:description" content="Dokumentasi API Axmisu: panel, akun premium, nomor virtual, webhook, cek saldo, dan daftar kode error untuk integrasi." />
+  <meta property="og:url" content="https://axmisu.com/docs" />
+  <meta property="og:image" content="https://axmisu.com/axmisu.png" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://api.axmisu.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/page.css" />
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ax-theme')
+      const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+    })()
+  </script>
+</head>
+
+<body>
+  <header class="top">
+    <a href="/" class="logo" aria-label="Axmisu"><svg aria-hidden="true"><use href="/icons/common.svg#ax-logo" /></svg></a>
+    <div class="title">API Docs</div>
+    <button type="button" class="icon-btn" id="theme" aria-label="Ganti tema">◐</button>
+    <button type="button" class="icon-btn menu-btn" id="menu" aria-label="Menu">☰</button>
+    <a class="login" href="https://member.axmisu.com/login">Masuk</a>
+  </header>
+
+  <div class="drawer-shade" id="shade"></div>
+  <aside class="drawer">
+    <div class="drawer-title">Navigasi API</div>
+    <nav class="docs-nav" id="nav-mobile"></nav>
+  </aside>
+
+  <div class="docs-grid">
+    <aside class="docs-side"><nav class="docs-nav" id="nav-desktop"></nav></aside>
+    <main id="main" style="min-width:0"><div class="card empty">Memuat dokumentasi...</div></main>
+  </div>
+
+  <script>
+    const API = 'https://api.axmisu.com'
+    const KEY = 'YOUR_KEY'
+    const AUTH = `-H "Authorization: Bearer ${KEY}"`
+    const METHODS = ['get', 'post', 'put', 'patch', 'delete']
+    const JSON_TYPE = 'application/json'
+    const copies = []
+
+    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+    const json = (v) => JSON.stringify(v, null, 2)
+    const md = (t) => String(t).split('`').map((x, i) => (i % 2 ? `<code class="strong">${esc(x)}</code>` : esc(x))).join('')
+    const colonPath = (p) => p.replace(/\{(\w+)\}/g, ':$1')
+    const refName = (ref) => ref.split('/').pop()
+    const resolveParam = (spec, p) => (p.$ref ? spec.components.parameters[refName(p.$ref)] : p)
+    const deref = (spec, o) => (o && o.$ref ? spec.components.schemas[refName(o.$ref)] : o)
+
+    function requestText(r, base) {
+      if (r.method === 'GET') {
+        const qs = new URLSearchParams(r.query || {}).toString()
+        return `curl "${base}${r.path}${qs ? `?${qs}` : ''}" \\\n  ${AUTH}`
+      }
+      return `curl -X POST "${base}${r.path}" \\\n  ${AUTH} \\\n  -H "Content-Type: application/json" \\\n  -d '${json(r.body)}'`
+    }
+
+    function requestsOf(spec, method, path, op) {
+      const body = op.requestBody?.content?.[JSON_TYPE]?.examples
+      if (body) return Object.entries(body).map(([key, x]) => ({ key, label: x.summary, note: x.description, method, path, body: x.value }))
+      if (op['x-request-examples']) return op['x-request-examples'].map((x) => ({ key: x.example, label: x.summary, method, path, query: x.query }))
+      const params = (op.parameters || []).map((p) => resolveParam(spec, p)).filter((p) => p.example !== undefined)
+      const filled = path.replace(/\{(\w+)\}/g, (_, k) => params.find((p) => p.in === 'path' && p.name === k)?.example ?? k)
+      const query = Object.fromEntries(params.filter((p) => p.in === 'query').map((p) => [p.name, p.example]))
+      return [{ label: 'Contoh Request', method, path: filled, query }]
+    }
+
+    function responsesOf(op) {
+      const out = []
+      for (const [code, r] of Object.entries(op.responses || {})) {
+        if (!code.startsWith('2')) continue
+        for (const [key, x] of Object.entries(r.content?.[JSON_TYPE]?.examples || {})) out.push({ key, label: x.summary, note: x.description, body: x.value })
+      }
+      return out
+    }
+
+    function pairsOf(requests, responses) {
+      if (!requests.length) return [{ request: null, responses }]
+      if (requests.length === 1) return [{ request: requests[0], responses }]
+      const used = new Set()
+      const pairs = requests.map((request) => {
+        const hit = responses.filter((x) => x.key && x.key === request.key)
+        hit.forEach((x) => used.add(x))
+        return { request, responses: hit }
+      })
+      const rest = responses.filter((x) => !used.has(x))
+      if (rest.length) pairs.push({ request: null, responses: rest })
+      return pairs
+    }
+
+    function paramsOf(spec, op) {
+      const fromParams = (op.parameters || []).map((p) => resolveParam(spec, p)).filter((p) => p.in !== 'header')
+        .map((p) => ({ name: p.name, where: p.in, required: !!p.required, type: p.schema?.type, desc: p.description }))
+      const schema = deref(spec, op.requestBody?.content?.[JSON_TYPE]?.schema)
+      const required = schema?.required || []
+      const fromBody = Object.entries(schema?.properties || {})
+        .map(([name, v]) => ({ name, where: 'body', required: required.includes(name), type: [].concat(v.type || []).join(' | ') + (v.enum ? ` (${v.enum.join(' | ')})` : ''), desc: v.description }))
+      return [...fromParams, ...fromBody]
+    }
+
+    function collect(spec) {
+      const list = []
+      for (const [path, item] of Object.entries(spec.paths || {})) {
+        for (const m of METHODS) {
+          const op = item[m]
+          if (!op) continue
+          const requests = requestsOf(spec, m, path, op).map((r) => ({ ...r, method: m.toUpperCase() }))
+          list.push({ id: op.operationId, title: op.summary, method: m.toUpperCase(), path: colonPath(path), desc: op.description, params: paramsOf(spec, op), pairs: pairsOf(requests, responsesOf(op)) })
+        }
+      }
+      for (const item of Object.values(spec.webhooks || {})) {
+        const op = item.post
+        const payloads = Object.entries(op.requestBody?.content?.[JSON_TYPE]?.examples || {}).map(([key, x]) => ({ key, label: x.summary, body: x.value }))
+        list.push({ id: op.operationId, title: op.summary, method: 'POST', path: 'Webhook URL di Profil', desc: op.description, params: [], pairs: [{ request: null, responses: payloads }], webhook: true })
+      }
+      return list
+    }
+
+    function code(label, text, kind, canCopy) {
+      copies.push(text)
+      const btn = canCopy ? `<button type="button" class="copy" data-i="${copies.length - 1}">Salin</button>` : ''
+      return `<div class="code-wrap"><div class="code-bar"><span>${esc(label || '')}</span>${btn}</div><pre class="${kind}"><code>${esc(text)}</code></pre></div>`
+    }
+
+    const note = (t) => (t ? `<p class="note">${md(t)}</p>` : '')
+
+    function paramsHtml(list) {
+      if (!list.length) return ''
+      const rows = list.map((p) => `<div class="item"><div class="meta"><code class="strong">${esc(p.name)}</code><span class="type">${esc(p.type || '')}</span><span class="where">${esc(p.where)}</span>${p.required ? '<span class="req-tag">wajib</span>' : ''}</div>${p.desc ? `<p class="pdesc">${md(p.desc)}</p>` : ''}</div>`).join('')
+      return `<div class="params"><div class="cap">Parameter</div><div class="list">${rows}</div></div>`
+    }
+
+    function variantHtml({ request, responses }, base, webhook) {
+      let out = '<div class="variant">'
+      if (request) out += code(request.label, requestText(request, base), 'req', true) + note(request.note)
+      for (const r of responses) {
+        const label = webhook ? r.label : request ? `Respons ${(r.label || '').replace(/^Respons\s*/i, '')}`.trim() : r.label
+        out += code(label, json(r.body), 'res', false) + note(r.note)
+      }
+      return out + '</div>'
+    }
+
+    function endpointHtml(e, base) {
+      const badge = e.method === 'GET' ? 'get' : 'post'
+      return `<section class="card" id="${esc(e.id)}"><h2>${esc(e.title)}</h2><div class="ep-head"><span class="badge ${badge}">${e.method}</span><code>${esc(e.path)}</code></div>${e.desc ? `<p class="desc">${md(e.desc)}</p>` : ''}${paramsHtml(e.params)}${e.pairs.map((p) => variantHtml(p, base, e.webhook)).join('')}</section>`
+    }
+
+    function errorsHtml(errors) {
+      const rows = errors.map(({ code, status, description }) => `<div class="err"><div><div class="cap">Code</div><code>${esc(code)}</code></div><div><div class="cap">HTTP</div>${esc(status)}</div><div><div class="cap">Description</div>${esc(description)}</div></div>`).join('')
+      return `<section class="card" id="error"><h2>Kode Error</h2><p class="desc" style="margin-bottom:0.75rem">Respons kesalahan mencakup salah satu kode berikut di <code class="strong">error.code</code>:</p><div class="err-list">${rows}</div></section>`
+    }
+
+    function render(spec) {
+      const base = spec.servers?.[0]?.url || `${API}/v1`
+      const items = collect(spec)
+      const errors = spec.components?.['x-error-codes'] || []
+      const nav = [...items, { id: 'error', title: 'Kode Error' }]
+      const navHtml = nav.map((n) => `<a href="#${esc(n.id)}" data-id="${esc(n.id)}">${esc(n.title)}</a>`).join('')
+      document.getElementById('nav-desktop').innerHTML = navHtml
+      document.getElementById('nav-mobile').innerHTML = navHtml
+
+      const intro = `<div class="card"><h1>Dokumentasi API</h1><p class="line">Kirim API key lewat header <code class="strong">Authorization: Bearer &lt;API_KEY&gt;</code>.</p>${code('Mulai cepat', requestText({ method: 'GET', path: '/profile' }, base), 'req', true)}${code('Base URL', base, 'req', true)}<p class="line"><a href="https://member.axmisu.com/dashboard/profile">API key</a></p><p class="line"><a href="${esc(base)}/openapi.yaml" style="word-break:break-all">OpenAPI (YAML)</a></p></div>`
+      document.getElementById('main').innerHTML = intro + items.map((e) => endpointHtml(e, base)).join('') + errorsHtml(errors)
+      spy(nav)
+    }
+
+    function spy(nav) {
+      const links = [...document.querySelectorAll('.docs-nav a')]
+      const onScroll = () => {
+        let current = nav[0].id
+        for (const n of nav) {
+          const el = document.getElementById(n.id)
+          if (el && el.getBoundingClientRect().top <= 120) current = n.id
+        }
+        links.forEach((a) => a.classList.toggle('on', a.dataset.id === current))
+      }
+      onScroll()
+      addEventListener('scroll', onScroll, { passive: true })
+      if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView()
+    }
+
+    document.addEventListener('click', (e) => {
+      const copy = e.target.closest('.copy')
+      if (copy) {
+        navigator.clipboard?.writeText(copies[copy.dataset.i]).then(() => {
+          copy.textContent = 'Tersalin'
+          setTimeout(() => (copy.textContent = 'Salin'), 1400)
+        }).catch(() => {})
+        return
+      }
+      if (e.target.closest('.drawer .docs-nav a') || e.target.id === 'shade') document.body.classList.remove('menu-open')
+    })
+
+    document.getElementById('menu').addEventListener('click', () => document.body.classList.toggle('menu-open'))
+    document.getElementById('theme').addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+      document.documentElement.dataset.theme = next
+      localStorage.setItem('ax-theme', next)
+    })
+
+    fetch(`${API}/v1`)
+      .then((r) => r.json())
+      .then(render)
+      .catch(() => {
+        document.getElementById('main').innerHTML = '<div class="card empty">Gagal memuat dokumentasi. Coba muat ulang halaman.</div>'
+      })
+  </script>
+</body>
+
+</html>
