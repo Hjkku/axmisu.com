@@ -9,9 +9,6 @@
   <meta name="author" content="Axmisu" />
   <meta name="robots" content="index, follow" />
   <meta id="theme-meta" name="theme-color" content="#0c1a3a" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Axmisu" />
   <link rel="canonical" href="https://axmisu.com/" />
 
   <meta property="og:title" content="Axmisu" />
@@ -42,9 +39,6 @@
 
   <script>
     (() => {
-      const isStandalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-      if (isStandalone) return location.replace('https://member.axmisu.com/login');
-
       const saved = localStorage.getItem('ax-theme');
       const isDark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
@@ -2030,6 +2024,8 @@
           <a href="#produk" class="nav-link">Produk</a>
           <a href="/docs" class="nav-link">Dokumentasi</a>
           <a href="#kontak" class="nav-link">Kontak</a>
+          <a href="/terms" class="nav-link">Syarat & Ketentuan</a>
+          <a href="/privacy" class="nav-link">Kebijakan Privasi</a>
           <div class="nav-auth">
             <a href="https://member.axmisu.com/login" class="btn line">Masuk</a>
             <a href="https://member.axmisu.com/register" class="btn solid">Daftar</a>
@@ -2147,7 +2143,6 @@
                 </div>
               </div>
             </div>
-            <a href="https://member.axmisu.com/login" class="card-cta">Lihat Katalog</a>
           </div>
 
           <div class="card reveal" style="--i:1">
@@ -2164,7 +2159,6 @@
                 <div class="quick"></div>
               </div>
             </div>
-            <a href="https://member.axmisu.com/login" class="card-cta">Lihat Katalog</a>
           </div>
 
           <div class="card nokos reveal" style="--i:2">
@@ -2182,7 +2176,6 @@
                 <div class="sms" id="sms">Tekan Minta OTP untuk mencoba.</div>
               </div>
             </div>
-            <a href="https://member.axmisu.com/login" class="card-cta">Lihat Katalog</a>
           </div>
 
           <div class="card premium reveal" style="--i:3">
@@ -2200,7 +2193,6 @@
               </div>
               <div class="tile-name" id="tile-name"></div>
             </div>
-            <a href="https://member.axmisu.com/login" class="card-cta">Lihat Katalog</a>
           </div>
 
           <div class="card router reveal" style="--i:4">
@@ -2220,7 +2212,6 @@
                   aria-label="Permintaan masuk"></div>
               </div>
             </div>
-            <a href="https://member.axmisu.com/login" class="card-cta">Lihat Katalog</a>
           </div>
 
           <div class="card router reveal" style="--i:5">
@@ -2237,7 +2228,6 @@
                 <pre class="snippet" id="snippet"></pre>
               </div>
             </div>
-            <a href="https://member.axmisu.com/login" class="card-cta">Lihat Katalog</a>
           </div>
         </div>
       </div>
