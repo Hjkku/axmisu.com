@@ -965,27 +965,28 @@
     }
 
     .chip {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: clamp(4.5rem, 5.5vw, 6.5rem);
-  height: clamp(3.5rem, 4.2vw, 5rem);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: #fff;
-  transition: transform 0.2s var(--ease);
-}
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: clamp(4.5rem, 5.5vw, 6.5rem);
+      height: clamp(3.5rem, 4.2vw, 5rem);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      transition: transform 0.2s var(--ease);
+    }
 
 
     .chip:hover {
       transform: translateY(-4px);
     }
-.chip img {
-  width: clamp(1.6rem, 2.2vw, 2.5rem);
-  height: clamp(1.6rem, 2.2vw, 2.5rem);
-  object-fit: contain;
-  pointer-events: none;
-}
+
+    .chip img {
+      width: clamp(1.6rem, 2.2vw, 2.5rem);
+      height: clamp(1.6rem, 2.2vw, 2.5rem);
+      object-fit: contain;
+      pointer-events: none;
+    }
 
 
     .section {
@@ -1702,11 +1703,11 @@
       }
 
       .marquee-track {
-  display: flex;
-  width: max-content;
-  gap: clamp(0.75rem, 1.2vw, 1.5rem);
-  padding-right: clamp(0.75rem, 1.2vw, 1.5rem);
-  animation: scroll linear infinite;
+        display: flex;
+        width: max-content;
+        gap: clamp(0.75rem, 1.2vw, 1.5rem);
+        padding-right: clamp(0.75rem, 1.2vw, 1.5rem);
+        animation: scroll linear infinite;
       }
 
       .reveal,
@@ -2576,5 +2577,4 @@
 
   </script>
 </body>
-
 </html>
