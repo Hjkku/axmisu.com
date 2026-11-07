@@ -11,7 +11,6 @@
   <script>
     (() => {
       const p = location.pathname
-      if (/^\/(grup|saluran|hubungiwa|hubungitelegram)\/?$/.test(p)) return location.replace('/komunitas')
       if (/^\/(dashboard|admin|login|register|forgot-password|verify-email)(\/|$)/.test(p)) return location.replace('https://member.axmisu.com' + p + location.search + location.hash)
       const saved = localStorage.getItem('ax-theme')
       const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
