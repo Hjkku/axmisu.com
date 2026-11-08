@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+<<<<<<< HEAD
+=======
+Disallow: /icons/
+Allow: /icons/icon-
+Allow: /icons/common.svg
+>>>>>>> f219e3b (perubahan ui)
+
+Sitemap: https://axmisu.com/sitemap.xml

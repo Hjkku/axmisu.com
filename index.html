@@ -1,0 +1,2583 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Axmisu</title>
+  <meta name="description" content="Platform produk digital siap pakai. Cepat, mudah, cermat, belanja makin hemat!" />
+  <meta name="author" content="Axmisu" />
+  <meta name="robots" content="index, follow" />
+  <meta id="theme-meta" name="theme-color" content="#0c1a3a" />
+  <link rel="canonical" href="https://axmisu.com/" />
+
+  <meta property="og:title" content="Axmisu" />
+  <meta property="og:description"
+    content="Platform produk digital siap pakai. Cepat, mudah, cermat, belanja makin hemat!" />
+  <meta property="og:image" content="https://axmisu.com/axmisu.png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:url" content="https://axmisu.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Axmisu" />
+  <meta property="og:locale" content="id_ID" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "WebSite", "name": "Axmisu", "url": "https://axmisu.com/" }
+  </script>
+  <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "Organization", "name": "Axmisu", "url": "https://axmisu.com", "logo": "https://axmisu.com/axmisu.png", "description": "Platform produk digital siap pakai. Cepat, mudah, cermat, belanja makin hemat!" }
+  </script>
+
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ax-theme');
+      const isDark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://cdn.simpleicons.org" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    media="print" onload="this.media='all'" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    :root,
+    [data-theme='light'] {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --border: #dbe2ee;
+      --text: #2b3648;
+      --muted: #5d6b82;
+      --bright: #0b1220;
+      --accent: #2563eb;
+      --accent-soft: #e4ecfd;
+      --deep: #0c1a3a;
+      --blob: #1d4fc4;
+      --panel: #2563eb;
+      --nokos: #059669;
+      --premium: #7c3aed;
+      --router: #ea580c;
+      --pad: clamp(1.25rem, 4vw, 4rem);
+      --max: 100rem;
+      --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+      --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    [data-theme='dark'] {
+      --bg: #0a0f1e;
+      --surface: #111827;
+      --border: #1e2d45;
+      --text: #c9d5e8;
+      --muted: #7d8fb0;
+      --bright: #f0f4ff;
+      --accent: #4b83f5;
+      --accent-soft: #172a52;
+      --deep: #0f1d40;
+      --blob: #1a45a8;
+      --panel: #3b74f0;
+      --nokos: #10b981;
+      --premium: #8b5cf6;
+      --router: #fb923c;
+    }
+
+    html,
+    body {
+      overflow-x: clip;
+    }
+
+    @media (min-width: 1800px) {
+      html {
+        font-size: 112.5%;
+      }
+    }
+
+    @media (min-width: 2200px) {
+      html {
+        font-size: 125%;
+      }
+    }
+
+    @media (min-width: 2800px) {
+      html {
+        font-size: 150%;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--display);
+      color: var(--bright);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    svg {
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-inline: var(--pad);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--deep);
+      color: #fff;
+    }
+
+    .nav-inner {
+      position: relative;
+      height: 3.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brand svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: #fff;
+    }
+
+    .nav-links-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.72);
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    .nav-auth {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn.solid {
+      background: #2f6df6;
+      color: #fff;
+    }
+
+    .btn.solid:hover {
+      background: #4b83f5;
+    }
+
+    .btn.line {
+      border-color: rgba(255, 255, 255, 0.28);
+      color: #fff;
+    }
+
+    .btn.line:hover {
+      border-color: #fff;
+    }
+
+    .btn.big {
+      height: 48px;
+      padding: 0 26px;
+      font-size: 1rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      border-radius: 0.9rem;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .bar {
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: #fff;
+      transition: transform 0.25s var(--ease), opacity 0.2s;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: grid;
+        grid-template-rows: 0fr;
+        visibility: hidden;
+        background: var(--deep);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        transition: grid-template-rows 0.35s var(--ease), visibility 0s linear 0.35s;
+      }
+
+      .nav-links.active {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        transition: grid-template-rows 0.35s var(--ease), visibility 0s;
+      }
+
+      .nav-links-inner {
+        min-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links-inner .nav-link {
+        padding: 0.8rem var(--pad);
+      }
+
+      .nav-auth {
+        margin: 0;
+        padding: 0.5rem var(--pad) 1rem;
+      }
+
+      .nav-auth .btn {
+        flex: 1;
+      }
+    }
+
+    .hero {
+      position: relative;
+      background: var(--deep);
+      color: #fff;
+      padding: clamp(2.5rem, 6vh, 5rem) 0 clamp(6rem, 12vw, 11rem);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(2rem, 4vw, 5rem);
+      align-items: center;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(2.5rem, 5.2vw, 5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: #7fa8ff;
+    }
+
+    .hero-desc {
+      max-width: 46ch;
+      margin: 1.25rem 0 2rem;
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .curve {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: clamp(50px, 8vw, 130px);
+      pointer-events: none;
+    }
+
+    .curve path {
+      fill: var(--bg);
+    }
+
+    .hero .curve {
+      bottom: -1px;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+    }
+
+    .hero-text>* {
+      animation: rise 0.8s var(--ease) backwards;
+    }
+
+    .hero-text> :nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .hero-text> :nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .blob {
+      position: absolute;
+      inset: 8% 0 -4% 8%;
+      background: var(--blob);
+      border-radius: 42% 58% 45% 55% / 55% 40% 60% 45%;
+      transform: rotate(-6deg);
+    }
+
+    .laptop {
+      position: relative;
+      width: min(100%, 43.75rem);
+      container-type: inline-size;
+      perspective: 1800px;
+    }
+
+    .lid {
+      transform-origin: 50% 100%;
+      transform: rotateX(-86deg);
+      opacity: 0.6;
+      background: #0e1116;
+      border: 1px solid #2a2f38;
+      border-radius: 14px 14px 2px 2px;
+      padding: 2.2% 2.2% 2.6%;
+      transition: transform 1.4s cubic-bezier(0.3, 0.8, 0.25, 1), opacity 0.6s;
+    }
+
+    .laptop.open .lid {
+      transform: none;
+      opacity: 1;
+    }
+
+    .base {
+      position: relative;
+      height: clamp(10px, 2.6cqw, 18px);
+      width: 112%;
+      margin-left: -6%;
+      border-radius: 0 0 18px 18px;
+      background: linear-gradient(#c9ced6, #9aa1ad);
+    }
+
+    .base::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 16%;
+      height: 55%;
+      transform: translateX(-50%);
+      background: #7d8491;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .screen {
+      --c-bg: #1e1e1e;
+      --c-side: #252526;
+      --c-line: #333;
+      --c-fg: #d4d4d4;
+      --c-dim: #858585;
+      font-size: calc(100cqw / 58);
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      color: var(--c-fg);
+      aspect-ratio: 16 / 10;
+      display: grid;
+      grid-template-columns: 3.2em 11em minmax(0, 1fr) 17.5em;
+      grid-template-rows: 2.3em minmax(0, 1fr) 1.7em;
+      background: var(--c-bg);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .vs-title {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      padding: 0 1em;
+      background: #323233;
+      font-size: 0.95em;
+      color: var(--c-dim);
+    }
+
+    .vs-title i {
+      width: 0.8em;
+      height: 0.8em;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+
+    .vs-title i:nth-child(2) {
+      background: #febc2e;
+    }
+
+    .vs-title i:nth-child(3) {
+      background: #28c840;
+    }
+
+    .vs-title span {
+      margin: 0 auto;
+      transform: translateX(-1.4em);
+    }
+
+    .vs-act {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1em;
+      padding-top: 1em;
+      background: #333333;
+    }
+
+    .vs-act svg {
+      width: 1.5em;
+      height: 1.5em;
+      stroke: #858585;
+      fill: none;
+      stroke-width: 1.6;
+    }
+
+    .vs-act svg.on {
+      stroke: #fff;
+    }
+
+    .vs-side {
+      padding: 0.8em 0;
+      background: var(--c-side);
+      font-size: 0.95em;
+    }
+
+    .vs-side h4 {
+      margin: 0 0 0.6em;
+      padding: 0 1em;
+      font-size: 0.8em;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--c-dim);
+    }
+
+    .vs-file {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.22em 1em;
+      color: #c5c5c5;
+      white-space: nowrap;
+    }
+
+    .vs-file.sub {
+      padding-left: 2em;
+    }
+
+    .vs-file.on {
+      background: #37373d;
+      color: #fff;
+    }
+
+    .vs-file b {
+      width: 0.75em;
+      height: 0.75em;
+      border-radius: 2px;
+      background: #f1e05a;
+      flex: none;
+    }
+
+    .vs-file b.j {
+      background: #519aba;
+    }
+
+    .vs-file b.d {
+      background: #858585;
+    }
+
+    .vs-ed {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: var(--c-bg);
+    }
+
+    .vs-tab {
+      display: flex;
+      background: var(--c-side);
+    }
+
+    .vs-tab span {
+      padding: 0.65em 1.1em;
+      font-size: 0.95em;
+      background: var(--c-bg);
+      color: #fff;
+      border-top: 1px solid #2f6df6;
+    }
+
+    .code {
+      flex: 1;
+      padding: 0.9em 0;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: 0.92em;
+      line-height: 1.75;
+      counter-reset: ln;
+    }
+
+    .ln {
+      counter-increment: ln;
+      display: flex;
+      white-space: pre;
+    }
+
+    .ln::before {
+      content: counter(ln);
+      flex: none;
+      width: 3em;
+      padding-right: 1.2em;
+      text-align: right;
+      color: #6e7681;
+    }
+
+    .ln>span {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .laptop.open .ln>span {
+      animation: type calc(var(--n) * 28ms) steps(var(--n)) forwards;
+      animation-delay: calc(1.4s + var(--d) * 0.42s);
+    }
+
+    @keyframes type {
+      to {
+        clip-path: inset(0);
+      }
+    }
+
+    .caret::after {
+      content: '';
+      display: inline-block;
+      width: 0.12em;
+      height: 1.1em;
+      margin-left: 1px;
+      vertical-align: middle;
+      background: #fff;
+    }
+
+    .k {
+      color: #c586c0;
+    }
+
+    .s {
+      color: #ce9178;
+    }
+
+    .f {
+      color: #dcdcaa;
+    }
+
+    .v {
+      color: #9cdcfe;
+    }
+
+    .t {
+      color: #4ec9b0;
+    }
+
+    .n {
+      color: #b5cea8;
+    }
+
+    .c {
+      color: #6a9955;
+    }
+
+    .vs-ai {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: var(--c-side);
+      border-left: 1px solid var(--c-line);
+      opacity: 0;
+      transform: translateX(1.5em);
+    }
+
+    .laptop.open .vs-ai {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.5s 2.4s, transform 0.6s 2.4s var(--ease);
+    }
+
+    .ai-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      padding: 0.7em 1em;
+      border-bottom: 1px solid var(--c-line);
+      font-size: 0.8em;
+      letter-spacing: 0.08em;
+      color: var(--c-dim);
+    }
+
+    .ai-head::before {
+      content: '';
+      width: 0.7em;
+      height: 0.7em;
+      border-radius: 50%;
+      background: #28c840;
+    }
+
+    .ai-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
+      padding: 0.9em;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+
+    .msg {
+      max-width: 92%;
+      padding: 0.55em 0.8em;
+      border-radius: 0.7em;
+      font-size: 1em;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+      animation: pop 0.25s var(--ease);
+    }
+
+    .msg.me {
+      align-self: flex-end;
+      background: #0e639c;
+      color: #fff;
+      border-bottom-right-radius: 0.2em;
+    }
+
+    .msg.bot {
+      align-self: flex-start;
+      background: #37373d;
+      border-bottom-left-radius: 0.2em;
+    }
+
+    .msg.dots {
+      display: flex;
+      gap: 0.3em;
+      padding: 0.8em;
+    }
+
+    .msg.dots i {
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background: #9aa0a6;
+      animation: dot 1s infinite ease-in-out;
+    }
+
+    .msg.dots i:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .msg.dots i:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.96);
+      }
+    }
+
+    @keyframes dot {
+
+      0%,
+      60%,
+      100% {
+        opacity: 0.4;
+        transform: none;
+      }
+
+      30% {
+        opacity: 1;
+        transform: translateY(-3px);
+      }
+    }
+
+    .ai-in {
+      display: flex;
+      gap: 0.5em;
+      padding: 0.7em;
+      border-top: 1px solid var(--c-line);
+    }
+
+    .ai-in input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.55em 0.8em;
+      border: 1px solid #454545;
+      border-radius: 0.5em;
+      background: #3c3c3c;
+      color: #fff;
+      font: inherit;
+      font-size: 1em;
+    }
+
+    .ai-in input:focus {
+      outline: 0;
+      border-color: #2f6df6;
+    }
+
+    .ai-in button {
+      flex: none;
+      padding: 0 0.9em;
+      border: 0;
+      border-radius: 0.5em;
+      background: #0e639c;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .vs-status {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1.2em;
+      padding: 0 1em;
+      background: #0e639c;
+      font-size: 0.85em;
+      color: #fff;
+    }
+
+    @media (pointer: coarse) {
+      .ai-in input {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .laptop {
+        width: min(100%, 340px);
+      }
+
+      .base {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    @container (max-width: 560px) {
+      .screen {
+        font-size: calc(100cqw / 34);
+        aspect-ratio: 1 / 1;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: 2.3em minmax(0, 0.85fr) minmax(0, 1fr) 1.7em;
+      }
+
+      .vs-act,
+      .vs-side {
+        display: none;
+      }
+
+      .vs-ai {
+        border-left: 0;
+        border-top: 1px solid var(--c-line);
+      }
+
+      .ln::before {
+        width: 2em;
+        padding-right: 0.8em;
+      }
+
+      .ln:nth-child(n + 8) {
+        display: none;
+      }
+    }
+
+    .support {
+      padding: 1.5rem 0 0;
+    }
+
+    .support-label {
+      margin-bottom: 1.25rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .marquee {
+      overflow: hidden;
+      cursor: grab;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .marquee+.marquee {
+      margin-top: 0.75rem;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 0.75rem;
+      padding-right: 0.75rem;
+      animation: scroll linear infinite;
+    }
+
+    .marquee.rev .marquee-track {
+      animation-direction: reverse;
+    }
+
+    .marquee:hover .marquee-track,
+    .marquee.paused .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .chip {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: clamp(4.5rem, 5.5vw, 6.5rem);
+      height: clamp(3.5rem, 4.2vw, 5rem);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      transition: transform 0.2s var(--ease);
+    }
+
+
+    .chip:hover {
+      transform: translateY(-4px);
+    }
+
+    .chip img {
+      width: clamp(1.6rem, 2.2vw, 2.5rem);
+      height: clamp(1.6rem, 2.2vw, 2.5rem);
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+
+    .section {
+      padding: clamp(3.5rem, 8vh, 6.5rem) 0;
+    }
+
+    .section-head {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.4vw, 2.9rem);
+      font-weight: 600;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1rem, 1.8vw, 1.75rem);
+    }
+
+    @media (min-width: 1500px) {
+      .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      --color: var(--panel);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: clamp(1.25rem, 2vw, 1.9rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      transition: border-color 0.2s, transform 0.3s var(--ease);
+    }
+
+    .card:hover {
+      border-color: var(--color);
+      transform: translateY(-3px);
+    }
+
+    .card.nokos {
+      --color: var(--nokos);
+    }
+
+    .card.premium {
+      --color: var(--premium);
+    }
+
+    .card.router {
+      --color: var(--router);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color);
+    }
+
+    .badge {
+      padding: 0.05rem 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #fff;
+      background: var(--color);
+      border-radius: 999px;
+    }
+
+    .card-title {
+      margin-bottom: 0.5rem;
+      font-size: clamp(1.3rem, 1.7vw, 1.65rem);
+      font-weight: 600;
+    }
+
+    .card-desc {
+      margin-bottom: 1.25rem;
+      color: var(--muted);
+    }
+
+    .demo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-cta {
+      align-self: flex-start;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--color);
+      border-radius: 10px;
+      transition: filter 0.15s, transform 0.15s;
+    }
+
+    .card-cta:hover {
+      filter: brightness(1.1);
+    }
+
+    .card-cta:active {
+      transform: scale(0.97);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      transition: opacity 0.5s, transform 0.65s var(--ease);
+      transition-delay: calc(var(--i, 0) * 70ms);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .card.reveal.in {
+      transition: opacity 0.5s, transform 0.65s var(--ease), border-color 0.2s;
+      transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s;
+    }
+
+    .win {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+
+    .win-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.8rem;
+      background: #2b2b2d;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: #9da1a6;
+    }
+
+    .win-bar i {
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+
+    .win-bar i+i {
+      background: #febc2e;
+    }
+
+    .win-bar i+i+i {
+      background: #28c840;
+    }
+
+    .win-bar span {
+      margin-left: 0.4rem;
+    }
+
+    .win-bar .grow {
+      margin-left: auto;
+    }
+
+    .log {
+      height: 11rem;
+      padding: 0.7rem 0.9rem;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      scrollbar-width: thin;
+    }
+
+    .log div {
+      animation: fade 0.25s ease;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+      }
+    }
+
+    .log .dim {
+      color: #7f8790;
+    }
+
+    .log .ok {
+      color: #4ade80;
+    }
+
+    .log .in {
+      color: #7fa8ff;
+    }
+
+    .pill {
+      margin-left: auto;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #fff;
+      background: #6b7280;
+      transition: background 0.3s;
+    }
+
+    .pill[data-s='running'] {
+      background: #16a34a;
+    }
+
+    .pill[data-s='starting'],
+    .pill[data-s='stopping'] {
+      background: #d97706;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      background: #2b2b2d;
+    }
+
+    .controls button,
+    .tabs button,
+    .quick button,
+    .cp {
+      padding: 0.35rem 0.9rem;
+      border: 0;
+      border-radius: 6px;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s, background 0.15s;
+    }
+
+    .controls button:active:not(:disabled),
+    .tabs button:active,
+    .quick button:active,
+    .cp:active {
+      transform: scale(0.95);
+    }
+
+    .controls button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .b-start {
+      background: #16a34a;
+    }
+
+    .b-restart {
+      background: #4b5563;
+    }
+
+    .b-stop {
+      background: #dc2626;
+    }
+
+    .stats {
+      margin-left: auto;
+      display: flex;
+      gap: 0.9rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: #9da1a6;
+    }
+
+    .stats b {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .term-in {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-top: 1px solid #333;
+    }
+
+    .term-in span {
+      color: #4ade80;
+    }
+
+    .term-in input {
+      flex: 1;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+    }
+
+    .term-in input:focus {
+      outline: 0;
+    }
+
+    .quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.5rem 0.9rem 0.8rem;
+    }
+
+    .quick button {
+      padding: 0.15rem 0.6rem;
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: 0.74rem;
+      background: #37373d;
+    }
+
+    .quick button:hover,
+    .tabs button:hover,
+    .cp:hover {
+      background: #4a4a52;
+    }
+
+    .phone {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .phone-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .phone-row .chip {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 12px;
+    }
+
+    .phone-row b {
+      display: block;
+      color: var(--bright);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .phone-row small {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+
+    .otp-btn {
+      margin-left: auto;
+      padding: 0.45rem 1rem;
+      border: 0;
+      border-radius: 8px;
+      background: var(--nokos);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .otp-btn:disabled {
+      opacity: 0.5;
+      cursor: wait;
+    }
+
+    .otp-btn:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+
+    .sms {
+      min-height: 3.6rem;
+      padding: 0.7rem 0.9rem;
+      border-radius: 12px 12px 12px 2px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .sms.got {
+      color: var(--bright);
+      animation: pop 0.3s var(--ease);
+    }
+
+    .sms strong {
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      color: var(--nokos);
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+      gap: 0.6rem;
+    }
+
+    .tile {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      padding: 0;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.2s var(--ease), border-color 0.2s;
+    }
+
+    .tile img {
+      width: 45%;
+      height: 45%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .tile:hover {
+      transform: translateY(-3px) rotate(-3deg);
+    }
+
+    .tile.on {
+      border-color: var(--premium);
+      transform: scale(1.06);
+    }
+
+    .tile-name {
+      margin-top: 0.8rem;
+      min-height: 1.5rem;
+      color: var(--bright);
+      font-weight: 600;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.3rem;
+      margin-left: auto;
+    }
+
+    .tabs button {
+      padding: 0.15rem 0.7rem;
+      font-weight: 500;
+      background: transparent;
+      color: #9da1a6;
+    }
+
+    .tabs button.on {
+      background: #3a3a40;
+      color: #fff;
+    }
+
+    .cp {
+      margin-left: 0.4rem;
+      padding: 0.15rem 0.7rem;
+      font-weight: 500;
+      background: #37373d;
+    }
+
+    .snippet {
+      min-height: 9.6rem;
+      margin: 0;
+      padding: 0.8rem 1rem;
+      overflow-x: auto;
+      white-space: pre;
+      font: inherit;
+    }
+
+    .models {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.7rem 1rem;
+      border-top: 1px solid #333;
+    }
+
+    .models span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      background: #37373d;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    .models img {
+      width: 0.9rem;
+      height: 0.9rem;
+      filter: invert(1) brightness(1.6);
+    }
+
+    .rows {
+      padding: 0.8rem 1rem;
+    }
+
+    .rows div {
+      display: flex;
+      gap: 1rem;
+      padding: 0.15rem 0;
+    }
+
+    .rows span {
+      flex: none;
+      width: 4.2rem;
+      color: #7f8790;
+    }
+
+    .rows b {
+      font-weight: 400;
+      overflow-wrap: anywhere;
+    }
+
+    .faq {
+      background: var(--bg);
+    }
+
+    .faq-list {
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item[open] {
+      border-color: var(--accent);
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      font-weight: 600;
+      color: var(--bright);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-q::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-q::after {
+      content: '+';
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--muted);
+      transition: transform 0.25s;
+    }
+
+    .faq-item[open] .faq-q::after {
+      transform: rotate(45deg);
+      color: var(--accent);
+    }
+
+    .faq-a {
+      padding: 0 1.4rem 1.2rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      position: relative;
+      margin-top: clamp(3rem, 8vw, 8rem);
+      background: var(--deep);
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .footer .curve {
+      top: 1px;
+      transform: translateY(-100%) scaleY(-1);
+    }
+
+    .footer .curve path {
+      fill: var(--deep);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      padding-block: clamp(1rem, 3vw, 2rem) 2.5rem;
+    }
+
+    .footer .brand {
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+
+    .footer-desc {
+      max-width: 34ch;
+    }
+
+    .footer-title {
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.15s;
+    }
+
+    .footer-link:hover {
+      color: #fff;
+    }
+
+    .footer-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .footer-bottom {
+      padding-block: 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .stage {
+        order: 2;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-inner> :first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 1900px) {
+      html {
+        font-size: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        gap: clamp(0.75rem, 1.2vw, 1.5rem);
+        padding-right: clamp(0.75rem, 1.2vw, 1.5rem);
+        animation: scroll linear infinite;
+      }
+
+      .reveal,
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .lid,
+      .vs-ai {
+        transition: none;
+      }
+
+      .hero-text>*,
+      .msg,
+      .log div {
+        animation: none;
+      }
+
+      .laptop .ln>span {
+        clip-path: none;
+        animation: none;
+      }
+    }
+
+    .caps {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .cap {
+      position: absolute;
+      display: block;
+      border-radius: 999px;
+      rotate: var(--r);
+      animation: float var(--t, 9s) ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      to {
+        translate: 0 -1.1rem;
+      }
+    }
+
+    .cap.c1 {
+      --r: -28deg;
+      --t: 11s;
+      top: 6%;
+      right: -9rem;
+      width: 38rem;
+      height: 12rem;
+      background: linear-gradient(90deg, #2563eb, #7fa8ff);
+      opacity: 0.55;
+    }
+
+    .cap.c2 {
+      --r: 24deg;
+      --t: 13s;
+      bottom: 12%;
+      left: -8rem;
+      width: 26rem;
+      height: 9rem;
+      background: linear-gradient(90deg, #22d3ee, #2563eb);
+      opacity: 0.32;
+    }
+
+    .cap.c3 {
+      --r: -18deg;
+      --t: 7s;
+      top: 16%;
+      left: 46%;
+      width: 8rem;
+      height: 3rem;
+      background: #fbbf24;
+      opacity: 0.9;
+    }
+
+    .cap.c4 {
+      --r: 32deg;
+      --t: 10s;
+      bottom: 20%;
+      right: 10%;
+      width: 14rem;
+      height: 5rem;
+      border: 3px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .cap.c5 {
+      --r: 40deg;
+      --t: 8s;
+      top: 70%;
+      left: 42%;
+      width: 6rem;
+      height: 2.4rem;
+      background: #8b5cf6;
+      opacity: 0.8;
+    }
+
+    .hero-inner {
+      position: relative;
+    }
+
+    .section-head.center {
+      text-align: center;
+    }
+
+    .section-head.center .section-title {
+      margin-inline: auto;
+    }
+
+    .prods {
+      position: relative;
+      overflow: clip;
+    }
+
+    .prods::before,
+    .prods::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .prods::before {
+      top: 6rem;
+      left: -10rem;
+      width: 24rem;
+      height: 8rem;
+      rotate: -24deg;
+      background: var(--accent-soft);
+    }
+
+    .prods::after {
+      bottom: 8rem;
+      right: -10rem;
+      width: 28rem;
+      height: 9rem;
+      rotate: 22deg;
+      background: var(--accent-soft);
+    }
+
+    .prods .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cards {
+      grid-template-columns: minmax(0, 1fr);
+      gap: clamp(4rem, 9vw, 8rem);
+    }
+
+    .card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      grid-template-rows: 1fr auto auto auto auto 1fr;
+      grid-template-areas: '. demo' 'top demo' 'title demo' 'desc demo' 'cta demo' '. demo';
+      column-gap: clamp(2rem, 6vw, 6rem);
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .card:hover {
+      transform: none;
+    }
+
+    .card:nth-child(even) {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      grid-template-areas: 'demo .' 'demo top' 'demo title' 'demo desc' 'demo cta' 'demo .';
+    }
+
+    .card-top {
+      grid-area: top;
+    }
+
+    .card-title {
+      grid-area: title;
+      font-size: clamp(2rem, 3.4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+    }
+
+    .card-desc {
+      grid-area: desc;
+      max-width: 44ch;
+      font-size: clamp(1rem, 1.25vw, 1.2rem);
+    }
+
+    .card-cta {
+      grid-area: cta;
+      align-self: start;
+      padding: 0;
+      background: none;
+      color: var(--color);
+      font-size: 1rem;
+    }
+
+    .card-cta::after {
+      content: ' \2192';
+    }
+
+    .card-cta:hover {
+      filter: none;
+      text-decoration: underline;
+    }
+
+    .card .demo {
+      grid-area: demo;
+      position: relative;
+      isolation: isolate;
+      margin: 0;
+      padding: clamp(1rem, 2.2vw, 2.2rem);
+    }
+
+    .card .demo::before,
+    .card .demo::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border-radius: 999px;
+    }
+
+    .card .demo::before {
+      inset: 4% -4% 4% 8%;
+      rotate: -7deg;
+      background: color-mix(in srgb, var(--color) 16%, transparent);
+    }
+
+    .card:nth-child(even) .demo::before {
+      inset: 4% 8% 4% -4%;
+      rotate: 7deg;
+    }
+
+    .card .demo::after {
+      top: -1.2rem;
+      right: 2rem;
+      width: 7rem;
+      height: 2.6rem;
+      rotate: 18deg;
+      background: var(--color);
+    }
+
+    .card:nth-child(even) .demo::after {
+      right: auto;
+      left: 2rem;
+      rotate: -18deg;
+    }
+
+    .card .win,
+    .card .phone {
+      box-shadow: 0 1.5rem 3rem -1rem rgba(12, 26, 58, 0.35);
+    }
+
+    .card .win {
+      font-size: clamp(0.78rem, 0.95vw, 1.05rem);
+    }
+
+    @media (max-width: 860px) {
+
+      .card,
+      .card:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: none;
+        grid-template-areas: 'top' 'title' 'desc' 'demo' 'cta';
+        row-gap: 0.4rem;
+      }
+
+      .card .demo {
+        margin: 1.5rem 0 1rem;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .cap.c1 {
+        top: 1%;
+        right: -9rem;
+        width: 22rem;
+        height: 7rem;
+        opacity: 0.35;
+      }
+
+      .cap.c3,
+      .cap.c5 {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cap {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <use href="/icons/common.svg#ax-logo" />
+        </svg>
+        Axmisu
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu"><span class="bar"></span><span
+          class="bar"></span><span class="bar"></span></button>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-links-inner">
+          <a href="#produk" class="nav-link">Produk</a>
+          <a href="/docs" class="nav-link">Dokumentasi</a>
+          <a href="#kontak" class="nav-link">Kontak</a>
+          <a href="/terms" class="nav-link">Syarat & Ketentuan</a>
+          <a href="/privacy" class="nav-link">Kebijakan Privasi</a>
+          <div class="nav-auth">
+            <a href="https://member.axmisu.com/login" class="btn line">Masuk</a>
+            <a href="https://member.axmisu.com/register" class="btn solid">Daftar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="caps" aria-hidden="true">
+        <i class="cap c1"></i>
+        <i class="cap c2"></i>
+        <i class="cap c3"></i>
+        <i class="cap c4"></i>
+        <i class="cap c5"></i>
+      </div>
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <h1>Axmisu <span>Berkualitas &amp; Simpel</span></h1>
+          <p class="hero-desc">Platform terlengkap, berkualitas dan hemat. Mulai dari layanan hosting, aplikasi premium,
+            nomor virtual dll.</p>
+          <div class="hero-cta">
+            <a href="https://member.axmisu.com/register" class="btn solid big">Daftar</a>
+            <a href="#produk" class="btn line big">Lihat Produk</a>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="blob" aria-hidden="true"></div>
+          <div class="laptop" id="laptop">
+            <div class="lid">
+              <div class="screen" role="group" aria-label="Contoh VS Code dengan AI agent">
+                <div class="vs-title"><i></i><i></i><i></i><span>agent.js — bot</span></div>
+                <div class="vs-act" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="on">
+                    <path d="M14 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V8zM14 3v5h5" />
+                  </svg>
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="6" />
+                    <path d="M16 16l4 4" />
+                  </svg>
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="6" cy="6" r="2" />
+                    <circle cx="6" cy="18" r="2" />
+                    <circle cx="18" cy="9" r="2" />
+                    <path d="M6 8v8M18 11c0 4-6 2-12 5" />
+                  </svg>
+                </div>
+                <div class="vs-side" aria-hidden="true">
+                  <h4>EXPLORER</h4>
+                  <div class="vs-file"><b class="d"></b>bot</div>
+                  <div class="vs-file sub on"><b></b>agent.js</div>
+                  <div class="vs-file sub"><b class="j"></b>package.json</div>
+                  <div class="vs-file sub"><b class="d"></b>.env</div>
+                </div>
+                <div class="vs-ed">
+                  <div class="vs-tab"><span>agent.js</span></div>
+                  <div class="code" aria-hidden="true" id="code"></div>
+                </div>
+                <div class="vs-ai">
+                  <div class="ai-head">AI AGENT</div>
+                  <div class="ai-body" id="ai-body" aria-live="polite"></div>
+                  <form class="ai-in" id="ai-form">
+                    <input id="ai-input" placeholder="Tanya agent" aria-label="Tanya agent" autocomplete="off"
+                      enterkeyhint="send" />
+                    <button type="submit">Kirim</button>
+                  </form>
+                </div>
+                <div class="vs-status"><span>main</span><span>JavaScript</span></div>
+              </div>
+            </div>
+            <div class="base"></div>
+          </div>
+        </div>
+      </div>
+      <svg class="curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 70C220 10 520 0 800 40s460 50 640 10v70H0z" />
+      </svg>
+    </section>
+
+    <section class="wrap support" aria-label="Aplikasi dan bahasa yang didukung">
+      <p class="support-label">Nomor virtual untuk aplikasi favorit, server untuk bahasa pemrogramanmu</p>
+      <div class="marquee"
+        data-icons="whatsapp telegram shopee gojek grab tiktok instagram facebook discord x line spotify netflix">
+      </div>
+      <div class="marquee rev"
+        data-icons="python go nodedotjs php typescript docker ubuntu github bun anthropic googlegemini deepseek">
+      </div>
+    </section>
+
+    <section class="section prods" id="produk">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <div class="section-label">Layanan</div>
+          <h2 class="section-title">Apa yang kami sediakan?</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal" style="--i:0">
+            <div class="card-top"><span class="card-label">Panel Server</span></div>
+            <h3 class="card-title">Panel Pterodactyl</h3>
+            <p class="card-desc">Panel hosting server siap pakai. Cocok untuk bot, web, dan game server.</p>
+            <div class="demo">
+              <div class="win" id="ptero">
+                <div class="win-bar"><i></i><i></i><i></i><span>bot-wa</span><b class="pill" id="p-st"
+                    data-s="off">Offline</b></div>
+                <div class="log" id="p-log" role="log" aria-label="Console server"></div>
+                <div class="controls">
+                  <button class="b-start" data-a="start">Start</button>
+                  <button class="b-restart" data-a="restart" disabled>Restart</button>
+                  <button class="b-stop" data-a="stop" disabled>Stop</button>
+                  <div class="stats"><span>CPU <b id="p-cpu">0%</b></span><span>RAM <b id="p-ram">0 MB</b></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal" style="--i:1">
+            <div class="card-top"><span class="card-label">VPS</span></div>
+            <h3 class="card-title">NAT VPS</h3>
+            <p class="card-desc">VPS NAT siap pakai dengan akses root. Cocok untuk tunnel, bot, dan aplikasi ringan.</p>
+            <div class="demo">
+              <div class="win" id="vps">
+                <div class="win-bar"><i></i><i></i><i></i><span>root@vps</span></div>
+                <div class="log" id="v-log" role="log" aria-label="Terminal VPS"></div>
+                <form class="term-in" id="v-form"><span>root@vps:~#</span><input id="v-input" autocomplete="off"
+                    autocapitalize="off" spellcheck="false" aria-label="Perintah terminal"
+                    placeholder="ketik perintah" /></form>
+                <div class="quick"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card nokos reveal" style="--i:2">
+            <div class="card-top"><span class="card-label">Nomor Virtual</span></div>
+            <h3 class="card-title">OTP &amp; SMS Instan</h3>
+            <p class="card-desc">Nomor virtual untuk verifikasi WhatsApp, Telegram, dan aplikasi lainnya.</p>
+            <div class="demo">
+              <div class="phone">
+                <div class="phone-row">
+                  <span class="chip"><img src="https://cdn.simpleicons.org/whatsapp" alt="" width="24"
+                      height="24" /></span>
+                  <div><b>WhatsApp</b><small>+62 8•• •••• 4821</small></div>
+                  <button class="otp-btn" id="otp-btn">Minta OTP</button>
+                </div>
+                <div class="sms" id="sms">Tekan Minta OTP untuk mencoba.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card premium reveal" style="--i:3">
+            <div class="card-top"><span class="card-label">Akun Premium</span></div>
+            <h3 class="card-title">Streaming &amp; Produktivitas</h3>
+            <p class="card-desc">Akun Spotify, Netflix, Canva, YouTube Premium, dan banyak lagi.</p>
+            <div class="demo">
+              <div class="tiles" id="tiles">
+                <button class="tile" data-n="Spotify"><img src="https://cdn.simpleicons.org/spotify"
+                    alt="Spotify" /></button>
+                <button class="tile" data-n="Netflix"><img src="https://cdn.simpleicons.org/netflix"
+                    alt="Netflix" /></button>
+                <button class="tile" data-n="YouTube Premium"><img src="https://cdn.simpleicons.org/youtube"
+                    alt="YouTube" /></button>
+              </div>
+              <div class="tile-name" id="tile-name"></div>
+            </div>
+          </div>
+
+          <div class="card router reveal" style="--i:4">
+            <div class="card-top"><span class="card-label">Router</span><span class="badge">BARU</span></div>
+            <h3 class="card-title">9Router</h3>
+            <p class="card-desc">Instance 9Router siap pakai dengan panel, dashboard, dan endpoint /v1.</p>
+            <div class="demo">
+              <div class="win">
+                <div class="win-bar"><i></i><i></i><i></i><span>.env</span><b class="pill" data-s="running">Berjalan</b>
+                </div>
+                <div class="rows">
+                  <div><span>Endpoint</span><b>https://&lt;host&gt;/v1</b></div>
+                  <div><span>Port</span><b>20128</b></div>
+                  <div><span>Dashboard</span><b>https://&lt;host&gt;/dashboard</b></div>
+                </div>
+                <div class="log" id="r-log" style="height:6.4rem;border-top:1px solid #333" role="log"
+                  aria-label="Permintaan masuk"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card router reveal" style="--i:5">
+            <div class="card-top"><span class="card-label">API AI</span><span class="badge">BARU</span></div>
+            <h3 class="card-title">AI Router</h3>
+            <p class="card-desc">API kompatibel OpenAI dan Anthropic. Banyak model, bayar sesuai pemakaian.</p>
+            <div class="demo">
+              <div class="win">
+                <div class="win-bar"><i></i><i></i><i></i><span>request.sh</span>
+                  <div class="tabs" id="tabs"><button class="on" data-k="openai">OpenAI</button><button
+                      data-k="anthropic">Anthropic</button></div>
+                  <button class="cp" id="cp">Salin</button>
+                </div>
+                <pre class="snippet" id="snippet"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">Pertanyaan Sering Diajukan</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary class="faq-q"><span>Bagaimana saya menghubungi Customer service?</span></summary>
+            <div class="faq-a">Customer service bisa dihubungi lewat email: support@axmisu.com</div>
+          </details>
+          <details class="faq-item reveal" style="--i:1">
+            <summary class="faq-q"><span>Apa kelebihan berbelanja disini?</span></summary>
+            <div class="faq-a">Anda bisa melihat dan membeli banyak produk dalam 1 dashboard. Pelayanan responsif. Cepat
+              &amp; realtime. Memudahkan anda saat belanja banyak produk.</div>
+          </details>
+          <details class="faq-item reveal" style="--i:2">
+            <summary class="faq-q"><span>Apakah layanan bisa digunakan untuk apapun?</span></summary>
+            <div class="faq-a">Tidak. Layanan kami sepenuhnya untuk penggunaan yang sah dan bertanggung jawab. Aktivitas
+              seperti penipuan, phishing, spam, pembuatan akun palsu, peniruan identitas, pelanggaran ketentuan layanan
+              platform, atau aktivitas ilegal lainnya dilarang.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="kontak">
+    <svg class="curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0v70c180 30 420 50 700 20s520-60 740-20V0z" />
+    </svg>
+    <div class="wrap footer-inner">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <use href="/icons/common.svg#ax-logo" />
+          </svg>
+          Axmisu
+        </div>
+        <p class="footer-desc">Platform produk digital siap pakai. Cepat, mudah, cermat, belanja makin hemat!</p>
+      </div>
+      <div>
+        <div class="footer-title">Informasi &amp; Lainnya</div>
+        <div class="footer-list">
+          <a href="https://member.axmisu.com/login" class="footer-link">Masuk</a>
+          <a href="https://member.axmisu.com/register" class="footer-link">Daftar</a>
+          <a href="/docs" class="footer-link">Dokumentasi</a>
+          <a href="/terms" class="footer-link">Syarat &amp; Ketentuan</a>
+          <a href="/privacy" class="footer-link">Kebijakan Privasi</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Kontak</div>
+        <div class="footer-list">
+          <a href="#" class="footer-link"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="/icons/common.svg#ax-instagram" />
+            </svg>Axmisu</a>
+          <a href="/saluran" class="footer-link"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="/icons/common.svg#ax-whatsapp" />
+            </svg>Saluran WhatsApp</a>
+          <a href="/grup" class="footer-link"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="/icons/common.svg#ax-whatsapp" />
+            </svg>Grup WhatsApp</a>
+          <a href="mailto:support@axmisu.com" class="footer-link"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="/icons/common.svg#ax-mail" />
+            </svg>support@axmisu.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Axmisu</div>
+  </footer>
+
+  <script>
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+    const rand = (a) => a[Math.floor(Math.random() * a.length)];
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clock = () => new Date().toLocaleTimeString('id-ID', { hour12: false });
+
+    const logTo = (el, text, cls) => {
+      const d = document.createElement('div');
+      d.textContent = text;
+      if (cls) d.className = cls;
+      el.append(d);
+      while (el.children.length > 60) el.firstChild.remove();
+      el.scrollTop = el.scrollHeight;
+    };
+
+    const navToggle = $('#nav-toggle'), navLinks = $('#nav-links');
+    const setMenu = (open) => [navToggle, navLinks].forEach((el) => el.classList.toggle('active', open));
+    navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
+    navLinks.addEventListener('click', (e) => e.target.closest('a') && setMenu(false));
+
+    const preload = (slug) => new Promise((resolve) => {
+      const img = new Image(26, 26);
+      img.src = `https://cdn.simpleicons.org/${slug}`;
+      img.alt = slug;
+      img.decoding = 'async';
+      img.draggable = false;
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+    });
+
+    $$('.marquee').forEach(async (m) => {
+      const loaded = (await Promise.all(m.dataset.icons.split(' ').map(preload))).filter(Boolean);
+      if (!loaded.length) return
+      const track = document.createElement('div');
+      track.className = 'marquee-track';
+      const chip = (img, hidden) => {
+        const c = document.createElement('span');
+        c.className = 'chip';
+        const i = img.cloneNode();
+        if (hidden) {
+          i.alt = '';
+          c.setAttribute('aria-hidden', 'true');
+        }
+        c.append(i);
+        return c;
+      };
+      const fill = () => {
+        track.replaceChildren();
+        loaded.forEach((img) => track.append(chip(img, false)));
+        const setW = track.scrollWidth;
+        const repeats = Math.max(1, Math.ceil((innerWidth * 1.25) / setW));
+        const half = [];
+        for (let r = 0; r < repeats; r++) loaded.forEach((img) => half.push(img));
+        track.replaceChildren(...half.map((img, i) => chip(img, i >= loaded.length)), ...half.map((img) => chip(img, true)));
+        track.style.animationDuration = `${(setW * repeats) / 50}s`;
+      };
+      m.append(track);
+      fill();
+      let lastW = innerWidth;
+      addEventListener('resize', () => {
+        if (innerWidth > lastW) fill();
+        lastW = Math.max(lastW, innerWidth);
+      });
+      const hold = (v) => () => m.classList.toggle('paused', v);
+      m.addEventListener('pointerdown', hold(true));
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach((t) => m.addEventListener(t, hold(false)));
+    });
+
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }), { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    $$('.reveal').forEach((el) => io.observe(el));
+
+    const CODE = [
+      '<span class="k">import</span> <span class="v">OpenAI</span> <span class="k">from</span> <span class="s">"openai"</span>;',
+      '',
+      '<span class="k">const</span> <span class="v">ai</span> = <span class="k">new</span> <span class="t">OpenAI</span>({',
+      '  <span class="v">baseURL</span>: <span class="s">"https://api.axmisu.com/v1"</span>,',
+      '  <span class="v">apiKey</span>: <span class="v">process</span>.<span class="v">env</span>.<span class="v">AXMISU_KEY</span>,',
+      '});',
+      '',
+      '<span class="k">const</span> <span class="v">res</span> = <span class="k">await</span> <span class="v">ai</span>.<span class="v">chat</span>.<span class="v">completions</span>.<span class="f">create</span>({',
+      '  <span class="v">model</span>: <span class="s">"claude-sonnet-5.5"</span>,',
+      '  <span class="v">messages</span>: [{ <span class="v">role</span>: <span class="s">"user"</span>, <span class="v">content</span>: <span class="s">"Halo!"</span> }],',
+      '});',
+    ];
+    const plain = (h) => h.replace(/<[^>]+>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').length;
+    const code = $('#code');
+    CODE.forEach((h, i) => {
+      const ln = document.createElement('div');
+      ln.className = 'ln';
+      ln.innerHTML = `<span style="--n:${Math.max(plain(h), 1)};--d:${i}">${h}</span>`;
+      code.append(ln);
+    });
+    code.lastChild.firstChild.classList.add('caret');
+
+    const REPLY = 'Halo, ada yang bisa saya bantu?';
+    const aiBody = $('#ai-body'), aiForm = $('#ai-form'), aiInput = $('#ai-input');
+    let aiBusy = false;
+    const bubble = (cls, text = '') => {
+      const b = document.createElement('div');
+      b.className = `msg ${cls}`;
+      b.textContent = text;
+      aiBody.append(b);
+      aiBody.scrollTop = aiBody.scrollHeight;
+      return b;
+    };
+    const botReply = () => {
+      aiBusy = true;
+      const dots = bubble('bot dots');
+      dots.innerHTML = '<i></i><i></i><i></i>';
+      setTimeout(() => {
+        dots.className = 'msg bot';
+        dots.textContent = '';
+        let i = 0;
+        const step = () => {
+          dots.textContent = REPLY.slice(0, ++i);
+          aiBody.scrollTop = aiBody.scrollHeight;
+          if (i < REPLY.length) return setTimeout(step, calm ? 0 : 22);
+          aiBusy = false;
+        };
+        step();
+      }, calm ? 0 : 650);
+    };
+    aiForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = aiInput.value.trim();
+      if (!v || aiBusy) return;
+      bubble('me', v);
+      aiInput.value = '';
+      botReply();
+    });
+
+    const laptop = $('#laptop');
+    setTimeout(() => laptop.classList.add('open'), calm ? 0 : 350);
+    setTimeout(botReply, calm ? 0 : 3200);
+
+    const pl = $('#p-log'), pst = $('#p-st'), cpu = $('#p-cpu'), ram = $('#p-ram');
+    const P = { st: 'off', t: [] };
+    const LABEL = { off: 'Offline', starting: 'Starting', running: 'Running', stopping: 'Stopping' };
+    const wait = (fn, ms) => P.t.push(setTimeout(fn, ms));
+    const setSt = (s) => {
+      P.st = s;
+      pst.textContent = LABEL[s];
+      pst.dataset.s = s;
+      $$('[data-a]').forEach((b) => (b.disabled = b.dataset.a === 'start' ? s !== 'off' : s === 'off' || s === 'stopping'));
+    };
+    const seq = (lines, done) => {
+      let t = 0;
+      lines.forEach(([text, ms, cls]) => { t += ms; wait(() => logTo(pl, text, cls), t); });
+      wait(done, t + 250);
+    };
+    const IDLE = ['pesan masuk dari 62812xxxx: .menu', 'perintah .ping dijalankan', 'pesan masuk di grup: .sticker', 'sesi tersimpan', 'perintah .tiktok dijalankan'];
+    const tick = () => {
+      if (P.st !== 'running') return;
+      logTo(pl, `[${clock()}] ${rand(IDLE)}`, 'in');
+      wait(tick, 1800 + Math.random() * 1800);
+    };
+    const pStart = () => {
+      if (P.st !== 'off') return;
+      setSt('starting');
+      seq([
+        ['container@pterodactyl~ Server marked as starting...', 0, 'dim'],
+        ['Checking server disk space usage...', 500, 'dim'],
+        ['> npm start', 700],
+        ['Memuat 24 perintah...', 700],
+        ['Bot terhubung ke WhatsApp', 900, 'ok'],
+      ], () => { setSt('running'); tick(); });
+    };
+    const pStop = (then) => {
+      if (P.st === 'off' || P.st === 'stopping') return;
+      P.t.forEach(clearTimeout); P.t = [];
+      setSt('stopping');
+      seq([['container@pterodactyl~ Server marked as stopping...', 0, 'dim'], ['Server marked as offline', 800, 'dim']], () => { setSt('off'); then && then(); });
+    };
+    $('#ptero').addEventListener('click', (e) => {
+      const a = e.target.closest('[data-a]')?.dataset.a;
+      if (a === 'start') pStart();
+      if (a === 'stop') pStop();
+      if (a === 'restart') pStop(pStart);
+    });
+    setInterval(() => {
+      const on = P.st === 'running';
+      cpu.textContent = on ? `${(2 + Math.random() * 14).toFixed(1)}%` : '0%';
+      ram.textContent = on ? `${Math.round(118 + Math.random() * 40)} MB` : '0 MB';
+    }, 1400);
+    logTo(pl, 'Server offline. Tekan Start.', 'dim');
+    let panelRan = false;
+    new IntersectionObserver(([e], o) => {
+      if (!e.isIntersecting || panelRan) return;
+      panelRan = true; o.disconnect();
+      setTimeout(pStart, 700);
+    }, { threshold: 0.6 }).observe($('#ptero'));
+
+    const vl = $('#v-log'), vi = $('#v-input');
+    const CMDS = {
+      whoami: 'root',
+      uptime: ' up 23 days, 4:12,  1 user,  load average: 0.08, 0.05, 0.01',
+      'free -h': '       total   used   free\nMem:   1.0Gi   212Mi  640Mi\nSwap:  512Mi   0B     512Mi',
+      ls: 'bot  app.js  node_modules  package.json',
+      'python3 --version': 'Python 3.12.3',
+      help: 'whoami  uptime  free -h  ls  python3 --version  clear',
+    };
+    logTo(vl, 'Ubuntu 24.04 LTS', 'dim');
+    logTo(vl, 'Ketik help untuk daftar perintah.', 'dim');
+    const runCmd = (raw) => {
+      const c = raw.trim().replace(/\s+/g, ' ');
+      if (!c) return;
+      if (c === 'clear') return (vl.textContent = '');
+      logTo(vl, `root@vps:~# ${c}`, 'ok');
+      logTo(vl, CMDS[c] ?? `${c.split(' ')[0]}: command not found`);
+    };
+    $('#v-form').addEventListener('submit', (e) => { e.preventDefault(); runCmd(vi.value); vi.value = ''; });
+    $('#vps .quick').addEventListener('click', (e) => e.target.matches('button') && runCmd(e.target.textContent));
+
+    const otpBtn = $('#otp-btn'), sms = $('#sms');
+    otpBtn.addEventListener('click', () => {
+      otpBtn.disabled = true;
+      sms.className = 'sms';
+      sms.textContent = 'Menunggu SMS...';
+      setTimeout(() => {
+        const code = String(Math.floor(100000 + Math.random() * 900000));
+        sms.className = 'sms got';
+        sms.innerHTML = `Kode WhatsApp Anda: <strong>${code.slice(0, 3)}-${code.slice(3)}</strong>`;
+        otpBtn.disabled = false;
+        otpBtn.textContent = 'Minta lagi';
+      }, calm ? 0 : 1400);
+    });
+
+    const tileName = $('#tile-name');
+    $('#tiles').addEventListener('click', (e) => {
+      const t = e.target.closest('.tile');
+      if (!t) return;
+      $$('.tile').forEach((x) => x.classList.toggle('on', x === t));
+      tileName.textContent = t.dataset.n;
+    });
+
+    const rl = $('#r-log');
+    const MODELS = ['claude-sonnet-5.5', 'gpt-5', 'gemini-2.5-pro', 'deepseek-v3'];
+    const feed = () => {
+      logTo(rl, `POST /v1/chat/completions  ${rand(MODELS)}  200  ${Math.round(300 + Math.random() * 900)}ms`, 'ok');
+    };
+    let feedTimer;
+    new IntersectionObserver(([e]) => {
+      clearInterval(feedTimer);
+      if (e.isIntersecting && !calm) feedTimer = setInterval(feed, 1700);
+    }).observe(rl);
+    feed();
+
+    const SNIP = {
+      openai: 'curl https://api.axmisu.com/v1/chat/completions \\\n  -H "Authorization: Bearer API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d \'{"model":"claude-sonnet-5.5",\n       "messages":[{"role":"user","content":"Halo!"}]}\'',
+      anthropic: 'curl https://api.axmisu.com/v1/messages \\\n  -H "x-api-key: API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d \'{"model":"claude-sonnet-5.5","max_tokens":1024,\n       "messages":[{"role":"user","content":"Halo!"}]}\'',
+    };
+    const snippet = $('#snippet'), cp = $('#cp');
+    let kind = 'openai';
+    const showSnip = (k) => {
+      kind = k;
+      snippet.textContent = SNIP[k];
+      $$('#tabs button').forEach((b) => b.classList.toggle('on', b.dataset.k === k));
+    };
+    $('#tabs').addEventListener('click', (e) => e.target.dataset.k && showSnip(e.target.dataset.k));
+    cp.addEventListener('click', () => {
+      navigator.clipboard?.writeText(SNIP[kind]).then(() => {
+        cp.textContent = 'Tersalin';
+        setTimeout(() => (cp.textContent = 'Salin'), 1400);
+      }).catch(() => {});
+    });
+    showSnip('openai');
+
+  </script>
+</body>
+</html>
