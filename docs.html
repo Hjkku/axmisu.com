@@ -5,11 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Dokumentasi API — Axmisu</title>
-  <meta name="description" content="Dokumentasi API Axmisu: panel, akun premium, nomor virtual, webhook, cek saldo, dan daftar kode error untuk integrasi." />
+  <meta name="description"
+    content="Dokumentasi API Axmisu: panel, akun premium, nomor virtual, webhook, cek saldo, dan daftar kode error untuk integrasi." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://axmisu.com/docs" />
   <meta property="og:title" content="Dokumentasi API — Axmisu" />
-  <meta property="og:description" content="Dokumentasi API Axmisu: panel, akun premium, nomor virtual, webhook, cek saldo, dan daftar kode error untuk integrasi." />
+  <meta property="og:description"
+    content="Dokumentasi API Axmisu: panel, akun premium, nomor virtual, webhook, cek saldo, dan daftar kode error untuk integrasi." />
   <meta property="og:url" content="https://axmisu.com/docs" />
   <meta property="og:image" content="https://axmisu.com/axmisu.png" />
   <meta property="og:type" content="website" />
@@ -19,7 +21,8 @@
   <link rel="preconnect" href="https://api.axmisu.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/page.css" />
   <script>
     (() => {
@@ -32,10 +35,17 @@
 
 <body>
   <header class="top">
-    <a href="/" class="logo" aria-label="Axmisu"><svg aria-hidden="true"><use href="/icons/common.svg#ax-logo" /></svg></a>
+    <a href="/" class="logo" aria-label="Axmisu"><svg aria-hidden="true">
+        <use href="/icons/common.svg#ax-logo" />
+      </svg></a>
     <div class="title">API Docs</div>
-    <button type="button" class="icon-btn" id="theme" aria-label="Ganti tema"><svg aria-hidden="true"><use href="/icons/common.svg#ax-moon" /></svg></button>
-    <button type="button" class="icon-btn menu-btn" id="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
+    <button type="button" class="icon-btn" id="theme" aria-label="Ganti tema"><svg aria-hidden="true">
+        <use href="/icons/common.svg#ax-moon" />
+      </svg></button>
+    <button type="button" class="icon-btn menu-btn" id="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg></button>
   </header>
 
   <div class="drawer-shade" id="shade"></div>
@@ -45,7 +55,9 @@
   </aside>
 
   <div class="docs-grid">
-    <aside class="docs-side"><nav class="docs-nav" id="nav-desktop"></nav></aside>
+    <aside class="docs-side">
+      <nav class="docs-nav" id="nav-desktop"></nav>
+    </aside>
     <main id="main" style="min-width:0"></main>
   </div>
 
@@ -178,7 +190,7 @@
       document.getElementById('nav-desktop').innerHTML = navHtml
       document.getElementById('nav-mobile').innerHTML = navHtml
 
-      const intro = `<div class="card"><h1>Dokumentasi API</h1><p class="line">Kirim API key lewat header <code class="strong">Authorization: Bearer &lt;API_KEY&gt;</code>.</p>${code('Mulai cepat', requestText({ method: 'GET', path: '/profile' }, base), 'req', true)}${code('Base URL', base, 'req', true)}<p class="line"><a href="https://member.axmisu.com/dashboard/profile">API key</a></p><p class="line"><a href="${esc(base)}/openapi.yaml" style="word-break:break-all">OpenAPI (YAML)</a></p></div>`
+      const intro = `<div class="card"><h1>Dokumentasi API</h1><p class="line">Kirim API key lewat header <code class="strong">Authorization: Bearer <a href="https://member.axmisu.com/dashboard/profile">&lt;YOUR_KEY&gt;</a></code>.</p>${code('Mulai cepat', requestText({ method: 'GET', path: '/profile' }, base), 'req', true)}${code('Base URL', base, 'req', true)}</div>`
       document.getElementById('main').innerHTML = intro + items.map((e) => endpointHtml(e, base)).join('') + errorsHtml(errors)
       spy(nav)
     }
